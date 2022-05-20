@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GrantAuthorizationAE</name>
+    </assembly>
+    <members>
+        <member name="M:GrantAuthorizationAE.AELicense.AoInitialize102">
+            <summary>
+            ArcGIS10.2  授权AE
+            </summary>
+            <param name="pAoInit">权限类</param>
+        </member>
+    </members>
+</doc>

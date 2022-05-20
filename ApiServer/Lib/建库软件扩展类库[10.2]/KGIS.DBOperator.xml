@@ -1,0 +1,907 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KGIS.DBOperator</name>
+    </assembly>
+    <members>
+        <member name="T:KGIS.DBOperator.AccessFactory">
+            <summary>
+            目    的：数据库操作工厂
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.AccessFactory.CreateDbConnection(KGIS.DBOperator.DatabaseType)">
+            <summary>
+            创建　IDbConnection
+            </summary>
+            <param name="databaseType">数据库类型</param>
+            <returns>IDbConnection接口</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.AccessFactory.CreateDbCommand(KGIS.DBOperator.DatabaseType)">
+            <summary>
+            创建　IDbCommand
+            </summary>
+            <param name="databaseType">数据库类型</param>
+            <returns>IDbCommand接口</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.AccessFactory.CreateDbDataAdapter(KGIS.DBOperator.DatabaseType,System.String,System.Data.IDbConnection)">
+            <summary>
+            创建　IDbDataAdapter
+            </summary>
+            <param name="databaseType">数据连接类型</param>
+            <param name="commandText">sql查询语句</param>
+            <param name="dbConnection">当前活动连接</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.AccessFactory.CreateDbDataParameter(KGIS.DBOperator.DatabaseType)">
+            <summary>
+            创建　IDbDataParameter
+            </summary>
+            <param name="databaseType">数据库类型</param>
+            <returns>IDbDataParameter接口</returns>
+        </member>
+        <!-- 对于成员“T:KGIS.DBOperator.ItemInfo`2”忽略有格式错误的 XML 注释 -->
+        <member name="P:KGIS.DBOperator.ItemInfo`2.InnerValue">
+            <summary>
+            对象值
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.ItemInfo`2.DisplayValue">
+            <summary>
+            显示值
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.#ctor(`0,`1)">
+            <summary>
+            初始化值项
+            </summary>
+            <param name="innervalue">关键值</param>
+            <param name="displayvalue">显示值</param>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.ToString">
+            <summary>
+            将对象显示为字符串
+            </summary>
+            <returns>显示的字符串</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.op_Equality(KGIS.DBOperator.ItemInfo{`0,`1},KGIS.DBOperator.ItemInfo{`0,`1})">
+            <summary>
+            是否相等
+            </summary>
+            <param name="param0"></param>
+            <param name="param1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.op_Inequality(KGIS.DBOperator.ItemInfo{`0,`1},KGIS.DBOperator.ItemInfo{`0,`1})">
+            <summary>
+            是否不等
+            </summary>
+            <param name="param0"></param>
+            <param name="param1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.Equals(KGIS.DBOperator.ItemInfo{`0,`1})">
+            <summary>
+            是否相等
+            </summary>
+            <param name="item">比较对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.Equals(System.Object)">
+            <summary>
+            是否相等
+            </summary>
+            <param name="obj">比较对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.ItemInfo`2.GetHashCode">
+            <summary>
+            获取HashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:KGIS.DBOperator.IRDBHelper">
+            <summary>
+            目    的：数据库操作接口
+            创 建 人：
+            创建时间：
+            备    注：
+            修改描述：
+            修 改 人：
+            修改日期：
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.IRDBHelper.DataBase">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.IRDBHelper.State">
+            <summary>
+            连接状态
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.IRDBHelper.ConnectionString">
+            <summary>
+            连接信息
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.IRDBHelper.ActiveConn">
+            <summary>
+            当前活动连接
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.Connect">
+            <summary>
+            连接
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.DisConnect">
+            <summary>
+            断开连接
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.BeginTransaction">
+            <summary>
+            开始事务
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.Commit">
+            <summary>
+            提交事务
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.GetTable(System.String)">
+            <summary>
+            根据表名获取内存中的表
+            </summary>
+            <param name="tableName">DataTable名称</param>
+            <returns>内存中名称为tableName的表</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.GetTablesName">
+            <summary>
+            获取内存中的所有表的名称集合
+            </summary>
+            <returns>内存中表集合的名称</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.SaveTable(System.String)">
+            <summary>
+            只存储修改 不释放DataTable
+            </summary>
+            <param name="tableName">DataTable名称</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.SaveTable(System.String,System.Boolean)">
+            <summary>
+            存储修改 释放DataTable
+            </summary>
+            <param name="tableName">DataTable名称</param>
+            <param name="release">释放</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReleaseTable(System.String,System.Boolean)">
+            <summary>
+            释放DataTable
+            </summary>
+            <param name="tableName">DataTable名称</param>
+            <param name="storage">是否要存储:True保存并释放,False直接释放</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReleaseTable(System.String)">
+            <summary>
+            释放DataTable，保存修改
+            </summary>
+            <param name="tableName">DataTable名称</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.Clear">
+            <summary>
+            清除所有内存DataTable,此方法使用时要非常小心
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReadBlobToBytes(System.String)">
+            <summary>
+            从数据库字段读取到字节数组
+            </summary>
+            <param name="commandText">命令文本</param>
+            <returns>字节数组</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReadBlobToBytes(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            从数据库字段读取到字节数组
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>字节数组</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReadBlobToFile(System.String,System.String)">
+            <summary>
+            从数据库字段读取到文件
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="filePath">文件地址</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ReadBlobToFile(System.String,System.Data.IDbDataParameter[],System.String)">
+            <summary>
+            从数据库字段读取到文件
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <param name="filePath">文件地址</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.WriteBytesToBlob(System.String,System.String,System.String,System.Byte[]@)">
+            <summary>
+            将字节数组存入到数据库BLOB字段中
+            </summary>
+            <param name="tabname">表名字</param>
+            <param name="fieldname">blob或image字段名字</param>
+            <param name="wherestr">条件语句，可为空，如果不为空，需要带where关键字传入</param>
+            <param name="content">要存入的字节流</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.WriteFileToBlob(System.String,System.String,System.String,System.String)">
+            <summary>
+            将文件存入到数据库BLOB字段中
+            </summary>
+            <param name="tabname">表名字</param>
+            <param name="fieldname">blob或image字段名字</param>
+            <param name="wherestr">条件语句，可为空，如果不为空，需要带where关键字传入</param>
+            <param name="filePath">文件路径</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.GetNextValidID(System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            获取指定来源的下一标识号
+            </summary>
+            <param name="tableName">指定数据表名称</param>
+            <param name="fieldName">指定的字段索引</param>
+            <param name="startNumber">启始标识号</param>
+            <param name="step">步长</param>
+            <returns>下一标识号</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.GetNextValidID(System.String,System.String)">
+            <summary>
+            获取指定来源的下一标识号
+            </summary>
+            <param name="tableName">指定数据表名称</param>
+            <param name="fieldName">指定的字段索引</param>
+            <returns>下一标识号</returns>
+        </member>
+        <member name="P:KGIS.DBOperator.IRDBHelper.SystemDataTime">
+            <summary>
+            获取系统当前时间
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDatatable(System.String,System.String,System.Boolean)">
+            <summary>
+            执行数据表查询
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="commandText">命令文本</param>
+            <param name="release">是否释放</param>
+            <returns>查询出来的数据表</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDatatable2(System.String,System.String,System.Boolean)">
+            <summary>
+            执行数据表查询
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="commandText">命令文本</param>
+            <param name="release">是否释放</param>
+            <returns>查询出来的数据表</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDatatableBySdoGeometry(System.String,System.String,System.Boolean)">
+            <summary>
+            执行数据表查询
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="commandText">命令文本</param>
+            <param name="release">是否释放</param>
+            <returns>查询出来的数据表</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteSQL(System.String)">
+            <summary>
+            执行SQL语句 NonQuery
+            </summary>
+            <param name="sqlText">标准SQL语句</param>
+            <returns>返回受影响的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset(System.String,System.Data.CommandType)">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset(System.String,System.Object[])">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="storedprocedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数值</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset(System.String,System.Data.CommandType,System.Boolean,System.String)">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="release">是否释放数据集</param>
+            <param name="dsName">保存在内存中的数据集名称</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset2(System.String,System.Data.CommandType,System.Boolean,System.String)">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="release">是否释放数据集</param>
+            <param name="dsName">保存在内存中的数据集名称</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteDataset(System.String,System.Data.CommandType,System.Data.IDbDataParameter[],System.Boolean,System.String)">
+            <summary>
+            执行数据集
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命令参数</param>
+            <param name="release">是否释放数据集</param>
+            <param name="dsName">保存在内存中的数据集名称</param>
+            <returns>数据集</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQuery(System.String,System.Data.CommandType)">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQuery(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命今参数</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQuery(System.String,System.Object[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="storedprocedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数值</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQueryWithException(System.String,System.Data.CommandType)">
+            <summary>
+            执行查询语句命令
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQueryWithException(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            执行查询语句命令
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命今参数</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteNonQueryWithException(System.String,System.Object[])">
+            <summary>
+            执行查询语句命令
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="storedprocedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数值</param>
+            <returns>影响到此次命令的记录数</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteReader(System.String,System.Data.CommandType)">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <returns>DataReader</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteReader(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命今参数</param>
+            <returns>DataReader</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteReader(System.String,System.Object[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="storedprocedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数值</param>
+            <returns>DataReader</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteScalar(System.String,System.Data.CommandType)">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <returns>单一数据对象</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteScalar(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="commandText">命令文本</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandParameters">命今参数</param>
+            <returns>单一数据对象</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.IRDBHelper.ExecuteScalar(System.String,System.Object[])">
+            <summary>
+            执行查询语句命令
+            </summary>
+            <param name="storedprocedureName">存储过程名称</param>
+            <param name="parameterValues">存储过程参数值</param>
+            <returns>单一数据对象</returns>
+        </member>
+        <member name="T:KGIS.DBOperator.DbConnectionOwnership">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DbConnectionOwnership.Internal">
+            <summary>Connection is owned and managed by IDbHelper</summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DbConnectionOwnership.External">
+            <summary>Connection is owned and managed by the caller</summary>
+        </member>
+        <member name="T:KGIS.DBOperator.DatabaseType">
+            <summary>
+            关系数据系统类型
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.Unknown">
+            <summary>
+            未知的类型
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.MSSQL">
+            <summary>
+            Microsoft SQL Server
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.MSAccess">
+            <summary>
+            Microsoft Office Access
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.Oracle">
+            <summary>
+            Oracle
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.TekOracle">
+            <summary>
+            TekOracle
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.SQLite">
+            <summary>
+            SQLite
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.DatabaseType.PostgreSQL">
+            <summary>
+            PostgreSQL数据库
+            </summary>
+        </member>
+        <member name="T:KGIS.DBOperator.RDBFactory">
+            <summary>
+            目    的：关系数据库访问工厂
+            创 建 人：
+            创建时间：2007-10-22
+            备    注：
+            修改描述：
+            修 改 人：
+            修改日期：
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.CreateDbHelper(System.Data.IDbConnection)">
+            <summary>
+            创建IDbHelper接口实例
+            </summary>
+            <param name="DbConnection">System.Data.IDbConnection连接对象</param>
+            <returns>IDbHelper接口实例</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.CreateDbHelper(System.String,KGIS.DBOperator.DatabaseType)">
+            <summary>
+            创建IDbHelper接口实例
+            </summary>
+            <param name="strCnn">数据库连接串</param>
+            <param name="dataBaseType">数据库类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.CreateDbHelper(System.String,System.String,System.String,System.String,System.String,System.String,KGIS.DBOperator.DatabaseType)">
+            <summary>
+            创建IDbHelper接口实例
+            </summary>
+            <param name="instance">实例名称－－连接标识</param>
+            <param name="server">数据库所在服务器</param>
+            <param name="port">端口</param>
+            <param name="database">数据库名称(数据库实例名称)</param>
+            <param name="userid">访问数据库的帐户</param>
+            <param name="password">访问数据库帐户的密码</param>
+            <param name="dataBaseType">连接类型</param>
+            <returns>IDbHelper接口</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.TestConnect(System.String,System.String,System.String,System.String,System.String,System.String,KGIS.DBOperator.DatabaseType)">
+            <summary>
+            测试链接
+            </summary>
+            <param name="instance">实例名称－－连接标识</param>
+            <param name="server">数据库所在服务器</param>
+            <param name="port">端口</param>
+            <param name="database">数据库名称(数据库实例名称)</param>
+            <param name="userid">访问数据库的帐户</param>
+            <param name="password">访问数据库帐户的密码</param>
+            <param name="dataBaseType">连接类型</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.CreateDbHelper(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建IDbHelper接口实例
+            </summary>
+            <param name="instance">实例名称－－连接标识</param>
+            <param name="datasource">数据源(文件地址)</param>
+            <param name="userid">访问数据库的帐户</param>
+            <param name="password">访问数据库帐户的密码</param>
+            <returns>IDbHelper接口</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBFactory.TestConnect(System.String,System.String,System.String,System.String)">
+            <summary>
+            测试链接
+            </summary>
+            <param name="instance">实例名称－－连接标识</param>
+            <param name="datasource">数据源(文件地址)</param>
+            <param name="userid">访问数据库的帐户</param>
+            <param name="password">访问数据库帐户的密码</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.activeConn">
+            <summary>
+            当前连接
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.pDbCommand">
+            <summary>
+            查询命令
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.connDbType">
+            <summary>
+            数据库连接类型
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.dcsBuilder">
+            <summary>
+            数据连接字符串生成
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.dbUser">
+            <summary>
+            数据库用户
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.dbPWD">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.SID">
+            <summary>
+            Oracle服务名
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.server">
+            <summary>
+            Oracle或者SQLServer的机器名
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.port">
+            <summary>
+            Oracle数据库端口
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.dbFileName">
+            <summary>
+            Access数据库全路径名
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.sInitCatalog">
+            <summary>
+            初始连接的SQL Server库
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.connString">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.retryTimes">
+            <summary>
+            连接重试次数
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.pDbTransaction">
+            <summary>
+            事务
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.startTransactionTime">
+            <summary>
+            启动事务时间
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.pDataAdapterCollection">
+            <summary>
+            数据库操作DataAdapter集合
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.pDataAdapter">
+            <summary>
+            当前活动的DataAdapter
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.activeDataSet">
+            <summary>
+            当前活动的DataSet
+            </summary>
+        </member>
+        <member name="F:KGIS.DBOperator.RDBHelper.pAccessFactory">
+            <summary>
+            访问工厂
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.CnnDbType">
+            <summary>
+            初始化sdo_geometry
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.ActiveConn">
+            <summary>
+            当前连接
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.InitCatalog">
+            <summary>
+            初始连接的SQL Server库
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.User">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.PWD">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.Service">
+            <summary>
+            Oracle服务名
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.Port">
+            <summary>
+            Oracle数据库端口
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.Server">
+            <summary>
+            Oracle或SQLServer的机器名
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.InitEnvironment">
+            <summary>
+            初始化连接环境
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.AttachParameters(System.Data.IDbCommand,System.Data.IDbDataParameter[])">
+            <summary>
+            绑定参数
+            </summary>
+            <param name="command">命令</param>
+            <param name="commandParameters">参数集合</param>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.AssignParameterValues(System.Data.IDbDataParameter[],System.Object[])">
+            <summary>
+            给参数赋值
+            </summary>
+            <param name="commandParameters">命令参数</param>
+            <param name="parameterValues">参数值集合</param>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.PrepareCommand(System.Data.IDbCommand,System.Data.IDbConnection,System.Data.IDbTransaction,System.Data.CommandType,System.String,System.Data.IDbDataParameter[],System.Boolean@)">
+            <summary>
+            查询命令准备
+            </summary>
+            <param name="command">命令</param>
+            <param name="connection">所属连接</param>
+            <param name="transaction">所属事务</param>
+            <param name="commandType">命令类型</param>
+            <param name="commandText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <param name="mustCloseConnection">是否关闭连接</param>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.CurrentDataAdapter(System.String)">
+            <summary>
+            根据健值获取DataAdapter集合中的DataAdapter
+            </summary>
+            <param name="strKey">键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.RemoveDataAdapter(System.String)">
+            <summary>
+            根据健值移除DataAdapter集合中的DataAdapter
+            </summary>
+            <param name="strKey">键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.StartTransaction">
+            <summary>
+            开始事务记时
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.OverTransaction">
+            <summary>
+            结束事务记时
+            </summary>
+            <returns>事务耗时(毫秒)</returns>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.DataBase">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.State">
+            <summary>
+            连接状态
+            </summary>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.Connect">
+            <summary>
+            连接数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.DisConnect">
+            <summary>
+            关闭连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.BeginTransaction">
+            <summary>
+            开始事务
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.Rollback">
+            <summary>
+            事务回滚
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.Commit">
+            <summary>
+            事务提交
+            </summary>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.ReadFromOracleBlog(System.String,System.String,System.String)">
+            <summary>
+            读取Oracle数据blog字段到Byte[]对象
+            </summary>
+            <param name="tabname">表名字</param>
+            <param name="fieldname">字段名字</param>
+            <param name="wherestr">Where条件语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.WriteFileToBlob(System.String,System.String,System.String,System.String)">
+            <summary>
+            将文件存入到数据库BLOB字段中
+            </summary>
+            <param name="tabname">表名字</param>
+            <param name="fieldname">字段名字</param>
+            <param name="wherestr">条件语句，可为空，如果不为空，需要带where关键字传入</param>
+            <param name="filePath">文件路径</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.GetNextValidID(System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            获取指定来源的下一标识号
+            </summary>
+            <param name="tableName">指定数据表名称</param>
+            <param name="fieldName">指定的字段索引</param>
+            <param name="startNumber">启始标识号</param>
+            <param name="step">步长</param>
+            <returns>下一标识号</returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.GetNextValidID(System.String,System.String)">
+            <summary>
+            获取指定来源的下一标识号
+            </summary>
+            <param name="tableName">指定数据表名称</param>
+            <param name="fieldName">指定的字段索引</param>
+            <returns>下一标识号</returns>
+        </member>
+        <member name="P:KGIS.DBOperator.RDBHelper.SystemDataTime">
+            <summary>
+            获取系统时间
+            </summary>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.ExecuteNonQueryWithException(System.String,System.Data.CommandType,System.Data.IDbDataParameter[])">
+            <summary>
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <param name="commandParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.ExecuteNonQueryWithException(System.String,System.Object[])">
+            <summary>
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="storedprocedureName"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGIS.DBOperator.RDBHelper.ExecuteNonQueryWithException(System.String,System.Data.CommandType)">
+            <summary>
+            zhouzh200910 执行非查询语句，有异常则直接抛出
+            </summary>
+            <param name="commandText"></param>
+            <param name="commandType"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
